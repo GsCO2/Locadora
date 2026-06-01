@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.fzl.LocadoraVeiculos.model.Locatario;
+import edu.fzl.LocadoraVeiculos.service.CarroService;
 import edu.fzl.LocadoraVeiculos.service.LocatarioService;
 
 @Controller
@@ -17,6 +18,8 @@ public class LocatarioController {
 
 	@Autowired
 	private LocatarioService service;
+	@Autowired
+	private CarroService cService;
 
 	@RequestMapping(name = "locatario", value = "/locatario", method = RequestMethod.GET)
 	public ModelAndView locatarioGet(@RequestParam Map<String, String> params, ModelMap model) {
@@ -37,6 +40,7 @@ public class LocatarioController {
 		String numero = params.get("numero");
 		String cep = params.get("cep");
 		String cidade = params.get("cidade");
+		String placa = params.get("placa");
 
 		Locatario l = new Locatario();
 		String erro = "";
@@ -109,6 +113,9 @@ public class LocatarioController {
 				}
 				
 				service.salvar(l);
+				model.addAttribute("locatario", l);
+	            model.addAttribute("carro", cService.buscar(placa));
+				return new ModelAndView("confirmar", model);
 			}
 		} catch (Exception e) {
 			erro = e.getMessage();
@@ -116,8 +123,15 @@ public class LocatarioController {
 		} finally {
 			model.addAttribute("erro", erro);
 			model.addAttribute("locatario", l);
+			model.addAttribute("placa", placa);
 		}
 
 		return new ModelAndView("locatario");
+	}
+	
+	@RequestMapping(value = "/usuarios", method = RequestMethod.GET)
+	public ModelAndView clientesGet(ModelMap model) {
+	    model.addAttribute("clientes", service.listarTodos());
+	    return new ModelAndView("usuarios");
 	}
 }

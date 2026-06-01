@@ -17,7 +17,7 @@ public class LocatarioService {
     
     public void salvar(Locatario locatario) throws Exception {
         boolean valido = validaCPF.valido(locatario.getCpf());
-        if(valido == false) {
+        if(!valido) {
         	throw new Exception("CPF Invalido.");
         }
     	repository.save(locatario);
@@ -29,7 +29,7 @@ public class LocatarioService {
 
     public Locatario buscarPorCpf(String cpf) throws Exception {
     	boolean valido = validaCPF.valido(cpf);
-        if(valido == false) {
+        if(!valido) {
         	throw new Exception("CPF Invalido.");
         }
         return repository.findById(cpf).orElse(null);
@@ -37,7 +37,7 @@ public class LocatarioService {
 
     public void excluir(String cpf) throws Exception {
     	boolean valido = validaCPF.valido(cpf);
-        if(valido == false) {
+        if(!valido) {
         	throw new Exception("CPF Invalido.");
         }
     	repository.deleteById(cpf);

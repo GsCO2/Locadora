@@ -17,12 +17,13 @@
 
 		<form action="<c:url value='/locatario'/>" method="post"
 			style="text-align: left;">
+			<input type="hidden" name="placa" value="${placa}">
 
 			<div
 				style="display: grid; grid-template-columns: 1fr 2fr; gap: 15px; margin-bottom: 15px;">
 				<div>
 					<label style="color: white; font-size: 0.8rem; font-weight: 600;">CPF
-						(ID):</label> <input type="text" name="cpf" value="${locatario.cpf}"
+						(ID):</label> <input type="text" name="cpf" value="${cpf}"
 						placeholder="Apenas números" maxlength="11" pattern="[0-9]{11}"
 						oninput="this.value=this.value.replace(/[^0-9]/g,'')" required
 						style="width: 100%; margin-top: 5px;">
@@ -109,9 +110,9 @@
 		</c:if>
 
 		<div style="margin-top: 30px; text-align: left;">
-			<a href="<c:url value='/'/>"
+			<a href="<c:url value='/aluguel'/>"
 				style="color: rgba(255, 255, 255, 0.4); text-decoration: none; font-size: 0.8rem;">
-				← VOLTAR AOS CARROS DISPONÍVEIS </a>
+				← VOLTAR </a>
 		</div>
 
 	</div>

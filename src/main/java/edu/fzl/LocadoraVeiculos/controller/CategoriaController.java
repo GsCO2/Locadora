@@ -23,8 +23,8 @@ public class CategoriaController {
 
 	@RequestMapping(name = "categoria", value = "/categoria", method = RequestMethod.GET)
 	public ModelAndView categoriaGet(@RequestParam Map<String, String> params, ModelMap model) {
-		model.addAttribute("categoria", new Categoria());
-		model.addAttribute("categorias", cService.listar()); 
+		Categoria c = new Categoria();
+		model.addAttribute("categoria", c);
 		return new ModelAndView("categoria");
 	}
 

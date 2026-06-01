@@ -37,4 +37,5 @@ public class Locatario {
 
     @Column(name = "cidade", length = 50)
     private String cidade;
+    
 }

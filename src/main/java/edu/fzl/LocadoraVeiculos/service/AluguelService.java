@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import edu.fzl.LocadoraVeiculos.model.Aluguel;
+import edu.fzl.LocadoraVeiculos.model.AluguelDto;
 import edu.fzl.LocadoraVeiculos.model.Carro;
 import edu.fzl.LocadoraVeiculos.repository.AluguelRepository;
 import edu.fzl.LocadoraVeiculos.repository.CarroRepository;
@@ -38,5 +39,9 @@ public class AluguelService {
 
     public List<Aluguel> listarTodos() {
         return aRepo.findAll();
+    }
+    
+    public List<AluguelDto> listarLocacoes(String status) {
+        return aRepo.listPorFiltro(status);
     }
 }

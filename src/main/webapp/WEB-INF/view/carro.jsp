@@ -29,8 +29,9 @@
 			        <label style="color: white; font-size: 0.8rem; font-weight: 600;">STATUS:</label>
 			        <select name="status" style="margin-top: 5px; width: 100%;">
 			            <option value="DISPONIVEL" ${carro.status == 'DISPONIVEL' ? 'selected' : ''}>DISPONÍVEL</option>
+			             <option value="INDISPONIVEL" ${carro.status == 'DISPONIVEL' ? 'selected' : ''}>INDISPONÍVEL</option>
 			            <option value="ALUGADO" ${carro.status == 'ALUGADO' ? 'selected' : ''}>ALUGADO</option>
-			            <option value="REPARO" ${carro.status == 'REPARO' ? 'selected' : ''}>EM REPARO</option>
+			            <option value="REPARO" ${carro.status == 'REPARO' ? 'selected' : ''}>REPARO</option>
 			        </select>
 			    </div>
 			</div>
@@ -135,7 +136,7 @@
         </c:if>
 
         <div style="margin-top: 30px; text-align: left;">
-            <a href="<c:url value='/'/>" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.8rem;">← VOLTAR AO MENU</a>
+            <a href="<c:url value='/gestao'/>" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.8rem;">← VOLTAR AO MENU</a>
         </div>
     </div>
 

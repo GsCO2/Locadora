@@ -67,7 +67,7 @@
         </c:if>
 
         <div style="margin-top: 30px; text-align: left;">
-            <a href="<c:url value='/'/>" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.8rem;">← VOLTAR AO MENU</a>
+            <a href="<c:url value='/gestao'/>" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.8rem;">← VOLTAR AO MENU</a>
         </div>
     </div>
 
