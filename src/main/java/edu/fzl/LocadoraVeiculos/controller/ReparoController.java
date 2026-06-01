@@ -46,6 +46,9 @@ public class ReparoController {
                     )
                 );
                 rService.registrarReparo(r);
+                cService.buscar(params.get("placa_carro"));
+                c.setStatus("INDISPONIVEL");
+                cService.salvar(c);
                 saida = "Veículo em reparo";
             } else if ("Finalizar".equalsIgnoreCase(acao)) {
                 int id = Integer.parseInt(params.get("id_reparo"));

@@ -31,7 +31,7 @@
 			            <option value="DISPONIVEL" ${carro.status == 'DISPONIVEL' ? 'selected' : ''}>DISPONÍVEL</option>
 			             <option value="INDISPONIVEL" ${carro.status == 'DISPONIVEL' ? 'selected' : ''}>INDISPONÍVEL</option>
 			            <option value="ALUGADO" ${carro.status == 'ALUGADO' ? 'selected' : ''}>ALUGADO</option>
-			            <option value="REPARO" ${carro.status == 'REPARO' ? 'selected' : ''}>REPARO</option>
+			            <option value="OFICINA" ${carro.status == 'REPARO' ? 'selected' : ''}>REPARO</option>
 			        </select>
 			    </div>
 			</div>

@@ -126,7 +126,7 @@ public class CarroController {
 				}
 
 				if (!status.equalsIgnoreCase("DISPONIVEL") && !status.equalsIgnoreCase("INDISPONIVEL")
-						&& !status.equalsIgnoreCase("ALUGADO") && !status.equalsIgnoreCase("REPARO")) {
+						&& !status.equalsIgnoreCase("ALUGADO") && !status.equalsIgnoreCase("OFICINA")) {
 					throw new Exception("Status inválido.");
 				}
 				

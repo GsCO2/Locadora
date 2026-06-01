@@ -31,6 +31,7 @@
 							<th style="padding: 12px; text-align: left;">DATA NASC.</th>
 							<th style="padding: 12px; text-align: left;">ENDEREÇO</th>
 							<th style="padding: 12px; text-align: left;">CIDADE</th>
+							<th style="padding: 12px; text-align: left;">HISTÓRICO</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -40,8 +41,14 @@
 								<td style="padding: 10px;">${l.nome}</td>
 								<td style="padding: 10px;">${l.numeroHabilitacao}</td>
 								<td style="padding: 10px;">${l.dataNascimento}</td>
-								<td style="padding: 10px;">${l.logradouro}, ${l.numero}, ${l.cep}</td>
+								<td style="padding: 10px;">${l.logradouro},${l.numero},
+									${l.cep}</td>
 								<td style="padding: 10px;">${l.cidade}</td>
+								<td style="padding: 10px;"><a
+									href="<c:url value='/historicoLocatario?cpf=${l.cpf}'/>"
+									class="btn-menu"
+									style="padding: 5px 12px; font-size: 0.75rem; height: auto;">
+										HISTÓRICO </a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

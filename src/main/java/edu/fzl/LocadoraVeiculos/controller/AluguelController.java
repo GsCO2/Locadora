@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.fzl.LocadoraVeiculos.model.Aluguel;
-import edu.fzl.LocadoraVeiculos.model.Carro;
 import edu.fzl.LocadoraVeiculos.model.AluguelDto;
 import edu.fzl.LocadoraVeiculos.model.Locatario;
 import edu.fzl.LocadoraVeiculos.service.AluguelService;
@@ -89,8 +88,8 @@ public class AluguelController {
 			}
 			aluguel.setTanqueCheio(true);
 			aService.registrarLocacao(aluguel);
-
-			return new ModelAndView("sucesso");
+			int id = aluguel.getId();
+			return new ModelAndView("redirect:/aluguel/sucesso?idLocacao=" + id);
 
 		} catch (Exception e) {
 			model.addAttribute("erro", "Erro:" + e.getMessage());
@@ -98,6 +97,12 @@ public class AluguelController {
 			model.addAttribute("carro", cService.buscar(placa));
 			return new ModelAndView("confirmar", model);
 		}
+	}
+	
+	@RequestMapping(value = "/aluguel/sucesso", method = RequestMethod.GET)
+	public ModelAndView sucessoGet(@RequestParam int idLocacao, ModelMap model) {
+	    model.addAttribute("idLocacao", idLocacao);
+	    return new ModelAndView("sucesso");
 	}
 	
 	@RequestMapping(value = "/locacoes", method = RequestMethod.GET)
